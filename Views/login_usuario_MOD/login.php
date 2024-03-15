@@ -4,39 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>seccion usuarioMOD (copy)</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <title>seccion usuario_MOD</title>
+    <link rel="stylesheet" href="Views/login_usuario_MOD/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Views/login_usuario_MOD/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="Views/login_usuario_MOD/assets/css/styles.min.css">
 </head>
-
-<?php 
-
-if(isset($_POST["registrar"])){
-
-    // validamos los datos del formularios "enviar" echo "Se ha pulsado el boton";
-
-if (empty($_POST['txt-usuario'])){
-
-    echo "El nombre no puede estar vacio <br>";
-
-}
-
-if (empty($_POST['txt-password']) || strlen($_POST['txt-password']) < 8){
-
-    echo "Debe escribir al menos 8 caracteres <br>";
-    
-    }
-}
-
-
-?>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
         style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;--bs-primary: #ffffff;--bs-primary-rgb: 255,255,255;">
-        <div class="container"><button class="btn btn-primary bg-dark border rounded-pill"
-                data-bss-hover-animate="rubberBand" type="button">Brand</button>
+        <div class="container">
+            <a href="index.php"
+                class="btn btn-primary bg-dark border rounded-pill" data-bss-hover-animate="rubberBand"
+                type="button">Brand</button>
+            </a>
             <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);width: 1500.969px;">
                 <div class="dropdown"><button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash"
                         type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
@@ -52,8 +33,11 @@ if (empty($_POST['txt-password']) || strlen($_POST['txt-password']) < 8){
             <div class="dropdown"><button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash"
                     type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
                     style="background: rgb(34,34,34);margin: 20px;border-color: var(--bs-body-color);padding: 0px 60px;height: 25px;width: 170px;">ACCEDER</button>
-                <div class="dropdown-menu"><a class="dropdown-item" href="../login_usuario_MOD/index.php">LOGIN</a><a
-                        class="dropdown-item" href="../registro_MOD/index.html">REGISTRAR</a></div>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
+
+                    <a class="dropdown-item" href="../registro_MOD/index.html">LOGOUT</a>
+                </div>
             </div>
             <a href="../carrito_MOD/index.html" class="btn btn-primary pull-right" data-bss-disabled-mobile="true"
                 data-bss-hover-animate="swing"
@@ -63,26 +47,40 @@ if (empty($_POST['txt-password']) || strlen($_POST['txt-password']) < 8){
         </div>
     </nav>
     <div id="main">
-    <div class="text-center" id="info">
-      <h3 class="text-center">Bienvenido</h3>
-      <p class="text-center">Ingrese usuario y contraseña</p>
+        <div class="text-center" id="info">
+            <h3 class="text-center">Bienvenido</h3>
+            <p class="text-center">Ingrese usuario y contraseña</p>
 
-      <form class="text-start" id="form-login" method="POST" action="">
-        <div class="mb-3">
-          <label class="form-label" id="lbl-usuario" for="txt-usuario">Usuario</label>
-          <input class="form-control" type="text" id="txt-usuario" name="txt-usuario"> 
+            <form class="text-start" id="form-login" method="POST"
+                action="index.php?controller=userController&action=login">
+                <div class="mb-3">
+                    <label class="form-label" id="lbl-usuario" for="txt-usuario">Usuario</label>
+                    <input class="form-control" type="text" id="txt-usuario" name="usuario">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" id="lbl-password" for="txt-password">Password</label>
+                    <input class="form-control" type="password" id="txt-password" name="contrasena">
+                </div>
+                <?php
+    if (isset($data['error'])) {
+        echo "<div class='alert alert-danger' role='alert'>".$data['error']."</div>";
+    }
+
+    ?>
+                <button class="btn btn-primary" data-bss-hover-animate="pulse" id="btn-sesion" type="submit"
+                    name="registrar"
+                    style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;">Iniciar
+                    Sesión</button>
+                <button class="btn btn-primary" data-bss-hover-animate="pulse" id="btn-sesion-1" type="submit"
+                    style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;margin: 10px;">¿Olvidaste
+                    contraseña?</button>
+            </form>
+
         </div>
-        <div class="mb-3">
-          <label class="form-label" id="lbl-password" for="txt-password">Password</label>
-          <input class="form-control" type="password" id="txt-password" name="txt-password">
-        </div>
-        <button class="btn btn-primary" data-bss-hover-animate="pulse" id="btn-sesion" type="submit" name="registrar" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;">Iniciar Sesión</button>
-        <button class="btn btn-primary" data-bss-hover-animate="pulse" id="btn-sesion-1" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;margin: 10px;">¿Olvidaste contraseña?</button>
-      </form>
     </div>
-  </div>
 
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/script.min.js"></script>
+    <script src="Views/login_usuario_MOD/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Views/login_usuario_MOD/assets/js/script.min.js"></script>
 </body>
+
 </html>

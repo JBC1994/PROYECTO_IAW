@@ -2,6 +2,7 @@
 
 include_once('Models/users.php');
 include_once('views/view.php');
+include_once('Models/productosDAO.php');
 class UserController {
 
     function getAllUser(){
@@ -50,6 +51,67 @@ class UserController {
 }
 
 }
+ //Aqui implemento la pagina de inicio a login. 
+
+    function verlogin(){
+        view::show('Views/login_usuario_MOD/login');
+    }
+//Aqui implemento la pagina de inicio a admin.
+    function veradmin(){
+        view::show('Views/Panel_de_control_administrador/admin');
+    }
+    /////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    
+    public function login() {
+
+        // Verificar si se enviaron los datos del formulario de inicio de sesión
+        if (!isset($_POST['usuario'], $_POST['contrasena'])) {
+            // Mostrar un mensaje de error si no se proporcionaron los datos necesarios
+            $error['error'] = 'Por favor, proporcione un usuario y una contraseña.';
+            view::show('views/login_usuario_MOD/login', $error);
+            return;
+        }
+    
+        $usuario = $_POST['usuario'];
+        $contrasena = $_POST['contrasena'];
+    
+        $userDAO = new UserDAO();
+        $usuarioDB = $userDAO->getUserByUsername($usuario);
+    
+        if (!$usuarioDB || $contrasena !== $usuarioDB['contrasena']) {
+            // Mostramos un mensaje de error si el usuario no existe o la contraseña es incorrecta
+            $error['error'] = 'Usuario o contraseña incorrectos';
+            view::show('views/login_usuario_MOD/login', $error);
+            return;
+        }
+    
+        // Iniciar sesión y establecer el rol del usuario
+        
+        $_SESSION['usuario'] = $usuario;
+        $_SESSION['rol'] = $usuarioDB['rol'];
+
+        // Determinar la vista según el rol del usuario
+        if($_SESSION['rol'] == '1'){
+            $product=new ProductoDAO();
+            $arrayProductos = $product->getAllProductos();
+            view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
+        } else {
+            $product=new ProductoDAO();
+            $arrayProductos = $product->getAllProductos();
+            view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
+        }
+
+        // Verificar si $arrayProductos existe antes de usarlo
+        //if (isset($arrayProductos)) {
+           // view::show($view, $arrayProductos);
+        //} else {
+          //  view::show($view);
+       // }
+
+    }
+    
+
   
 
 }

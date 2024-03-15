@@ -15,8 +15,7 @@
     <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
         style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;--bs-primary: #ffffff;--bs-primary-rgb: 255,255,255;">
         <div class="container">
-            -- Tengo que ver como hacer que el boton de brand me lleve a la pagina de inicio
-            <a href="index.php?controller=ProductController&action=getAllProductUser"
+            <a href="index.php"
                 class="btn btn-primary bg-dark border rounded-pill" data-bss-hover-animate="rubberBand"> Brand
             </a>
 
@@ -37,8 +36,14 @@
             <div class="dropdown"><button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash"
                     type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
                     style="background: rgb(34,34,34);margin: 20px;border-color: var(--bs-body-color);padding: 0px 60px;height: 25px;width: 170px;">ACCEDER</button>
-                <div class="dropdown-menu"><a class="dropdown-item" href="../login_usuario_MOD/index.php">LOGIN</a><a
-                        class="dropdown-item" href="../registro_MOD/index.html">REGISTRAR</a></div>
+                <div class="dropdown-menu">
+
+                    <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
+
+
+
+                    <a class="dropdown-item" href="../registro_MOD/index.html">LOGOUT</a>
+                </div>
             </div>
             <a href="index.php?controller=ProductController&action=getAllProductUser" class="btn btn-primary pull-right"
                 data-bss-disabled-mobile="true" data-bss-hover-animate="swing"
@@ -50,9 +55,13 @@
     <section style="margin: 40px;">
         <div class="container">
             <?php
-        $i = 0;
+            if (is_array($data)) {
+            $i = 0;
         foreach ($data as $producto) {
             if ($i % 3 == 0) {
+                if ($i > 0) {
+                    echo '</div>'; // Cerrar la fila anterior antes de comenzar una nueva
+                }
                 echo '<div class="row">';
             }
             $linkCarrito = '<a href="index.php?controller=productController&action=addCarrito&idproducto=' . $producto['id_producto'] . '">Añadir al carrito</a>';
@@ -75,18 +84,16 @@
                     ' . $linkVerProducto . '
             </button>';
 
-            
-
-
             echo '</div>
             </div>
         </div>';
-            $i++;
-            if ($i % 3 == 0 || $i == count($data)) {
-                echo '</div>';
-            }
-        }
-        ?>
+        $i++;
+    }
+    echo '</div>'; // Cierro la última fila después del bucle
+} else {
+    echo 'No hay productos para mostrar';
+}
+?>
         </div>
     </section>
 

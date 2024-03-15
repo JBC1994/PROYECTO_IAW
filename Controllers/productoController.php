@@ -8,11 +8,10 @@ class ProductController {
 
         $productDAO=new ProductoDAO();
         $arrayProductos=$productDAO->getAllProductos();
-        view::show('Views/administrador/almacen_administrador', $arrayProductos);
+        view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
     }
 
     function getAllProductUser(){
-        session_start();
         view::show('Views/carrito_MOD/carrito', $_SESSION['carrito']);
     }
 
@@ -36,6 +35,10 @@ class ProductController {
             if (empty($_POST['categoria'])==0)
                 $erroresForm['categoria']="La categoría no puede estar vacía.";
 
+            if (empty($_POST['descripcion2'])==0)
+                $erroresForm['descripcion2']="La categoría no puede estar vacía.";
+            
+
             # Comprobamos si hemos detectado errores en el form
             if (count($erroresForm)==0){ //Si el array no esta vacio
                 $id=filtrado($_POST['id']);
@@ -44,12 +47,13 @@ class ProductController {
                 $precio=filtrado($_POST['precio']);
                 $stock=filtrado($_POST['stock']);
                 $categoria=filtrado($_POST['categoria']);
+                $descripcion2=filtrado($_POST['descripcion2']);
                 
                 $productDao=new ProductoDAO();
-                $productDao->insertarProducto($nombre,$descripcion,$precio,$stock,$categoria);
+                $productDao->insertarProducto($nombre,$descripcion,$precio,$stock,$categoria,$descripcion2);
                 $arrayProductos=$productDao->getAllProductos();
 
-                view::show('almacen_administrador',$arrayProductos);
+                view::show('views/Panel_de_control_administrador/admin',$arrayProductos);
             }
         }
         else { // Si el array esta vacío, hay errores en los campos
@@ -60,7 +64,7 @@ class ProductController {
     }
 
     function addCarrito() {
-        session_start();
+        
         if (!isset($_SESSION['carrito'])){
             $_SESSION['carrito'] = array();
         }
@@ -74,10 +78,11 @@ class ProductController {
                 $_SESSION['carrito'][$idproducto]++;
             } else {
                 // Si no, añade el producto al carrito con una cantidad de 1
-                $_SESSION['carrito'][$idproducto] = 1;
+                $_SESSION['carrito'][$idproducto];
             }
         } else {
-            // Manejar el error...
+            // Si no se ha enviado 'idproducto' o no es un número, muestra un mensaje de error
+            echo 'Error: Producto no válido.';
         }
     
         // Mostramos de nuevo la lista de productos
@@ -95,6 +100,31 @@ class ProductController {
 
     }
 
+    function verPaginaInicial(){
+        $productDAO = new ProductoDAO();
+        $arrayProductos = $productDAO->getAllProductos();
+        view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos); 
+    }
 
+    function deleteproduct(){
+        $productDAO = new ProductoDAO();
+        $idProducto = $_REQUEST['idproducto'];
+        $productDAO->eliminarProductoPorId($idProducto); // Tendremos que implementar lo que tenemos en nuestra clase DAO de borrado de producto.
+        $arrayProductos = $productDAO->getAllProductos();
+        view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
+    }
+
+    function insertarProducto(){
+        $productDAO = new ProductoDAO();
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
+        $stock = $_POST['stock'];
+        $categoria = $_POST['categoria'];
+        $descripcion2 = $_POST['descripcion2'];
+        $productDAO->insertarProducto($nombre, $descripcion, $precio, $stock, $categoria, $descripcion2);
+        $arrayProductos = $productDAO->getAllProductos();
+        view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
+    }
 
 }

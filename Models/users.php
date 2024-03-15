@@ -7,9 +7,6 @@ class userDAO{
 
     public function __construct() {
         $this->con_db = Database::connect();
-
-        // Aquí puedes hacer lo que necesites con los parámetros
-        // Por ejemplo, guardarlos en la base de datos o realizar alguna otra operación
     }
 
     public function insertarUsuario($nombre, $email, $contrasena, $rol = "usuario") {
@@ -41,7 +38,6 @@ class userDAO{
             return false; // Error al eliminar el usuario
         }
     }
-
 
     public function getAllUsers(){
         try {
@@ -89,6 +85,19 @@ class userDAO{
             return false; // Error al actualizar usuario
             }
         }
+
+        public function getUserByUsername($nombre) {
+            $stmt = $this->con_db->prepare("SELECT * FROM usuario WHERE nombre = :nombre");
+            $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+            $stmt->execute();        
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+            
+        
+
+
+
 }
 
 

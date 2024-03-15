@@ -12,51 +12,41 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
-        style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;">
-        <div class="container">
-            <a href="index.php?controller=ProductController&action=getAllProductUser"
-                class="btn btn-primary bg-dark border rounded-pill" data-bss-hover-animate="rubberBand">
-                Brand
-            </a>
-            <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);width: 1500.969px;">
-                <div class="d-flex flex-row justify-content-between w-100">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash" type="button"
-                            aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
+<nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
+            style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;--bs-primary: #ffffff;--bs-primary-rgb: 255,255,255;">
+            <div class="container">
+                <a href="index.php" class="btn btn-primary bg-dark border rounded-pill"
+                    data-bss-hover-animate="rubberBand">
+                    Brand
+                </a>
+                <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);width: 1500.969px;">
+                    <div class="dropdown"><button class="btn btn-secondary dropdown-toggle"
+                            data-bss-hover-animate="flash" type="button" aria-haspopup="true" aria-expanded="false"
+                            data-bs-toggle="dropdown"
                             style="background: rgb(34,34,34);margin: 20px;border-color: var(--bs-body-color);padding: 0px 60px;height: 25px;width: 170px;">CATEGORÍA&nbsp;</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="../Coche_Ocasion/index.html">COCHES DE OCASION</a>
-                            <a class="dropdown-item" href="../Coche_Kilometro_0/index.html">COCHES KILOMETRO 0</a>
-                            <a class="dropdown-item" href="../Coche_Renting/index.html">COCHES DE RENTING</a>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row">
-                        <input type="text" class="form-control dropdown-search-input me-2"
-                            placeholder="Buscar producto..."
-                            style="width: 340px; height: 0px; margin: 20px 0px 0px; padding: 15px;">
-                        <button class="btn btn-primary border rounded-pill" data-bss-hover-animate="rubberBand"
-                            type="submit"
-                            style="padding: 0px 0px;width: 90px;height: 35px;margin: 20px;background: rgb(255,255,255);color: rgb(0,0,0);border-style: hidden;">Buscar</button>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash" type="button"
-                            aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
-                            style="background: rgb(34,34,34);margin: 20px;border-color: var(--bs-body-color);padding: 0px 60px;height: 25px;width: 170px;">ACCEDER</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="../login_usuario_MOD/index.php">LOGIN</a>
-                            <a class="dropdown-item" href="../registro_MOD/index.html">REGISTRAR</a>
-                        </div>
-                    </div>
-                    <a href="../carrito_MOD/index.html" class="btn btn-primary" data-bss-disabled-mobile="true"
-                        data-bss-hover-animate="swing"
-                        style="background: var(--bs-body-color); border-color: var(--bs-secondary-color); margin-left: 10px;">
-                        <i class="fa fa-shopping-cart" data-bss-hover-animate="swing" style="font-size: 29px;"></i>
-                    </a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="../Coche_Ocasion/index.html">COCHES DE
+                                OCASION</a><a class="dropdown-item" href="../Coche_Kilometro_0/index.html">COCHES
+                                KILOMETRO
+                                0</a><a class="dropdown-item" href="../Coche_Renting/index.html">RENTING</a></div>
+                    </div><input type="text" class="form-control dropdown-search-input" placeholder="Buscar producto..."
+                        style="width: 340px;height: 0px;margin: 0px 0px 0px;padding: 15px;"><button
+                        class="btn btn-primary border rounded-pill" data-bss-hover-animate="rubberBand" type="button"
+                        style="padding: 0px 0px;width: 90px;height: 35px;margin: 10px;background: rgb(255,255,255);color: rgb(0,0,0);border-style: hidden;">Buscar</button>
                 </div>
+                <div class="dropdown"><button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash"
+                        type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
+                        style="background: rgb(34,34,34);margin: 20px;border-color: var(--bs-body-color);padding: 0px 60px;height: 25px;width: 170px;">ACCEDER</button>
+                    <div class="dropdown-menu"><a class="dropdown-item"
+                            href="../login_usuario_MOD/index.php">LOGIN</a><a class="dropdown-item"
+                            href="../registro_MOD/index.html">LOGOUT</a></div>
+                </div>
+                <a href="../carrito_MOD/index.html" class="btn btn-primary pull-right" data-bss-disabled-mobile="true"
+                    data-bss-hover-animate="swing"
+                    style="background: var(--bs-body-color); border-color: var(--bs-secondary-color);">
+                    <i class="fa fa-shopping-cart" data-bss-hover-animate="swing" style="font-size: 29px;"></i>
+                </a>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <div class="shopping-cart">
         <div class="px-4 px-lg-0">
@@ -95,7 +85,7 @@
                         $productDAO = new ProductoDAO();
                         $producto = $productDAO->getProductoById($idProducto);
                         echo '<tr> <th scope="row" class="border-0"> <div class="p-2"> <img src="images/' . $producto['nombre'] . '.jpg" alt="" width="70" class="img-fluid rounded shadow-sm"><div class="ml-3 d-inline-block align-middle">';
-                        echo '<h5 class="mb-0"> <a href="' . $producto['nombre'] . '" class="text-dark d-inline-block align-middle">' . $producto['nombre'] . '</a>';
+                        echo '<h5 class="mb-0"> <a href="" class="text-dark d-inline-block align-middle">' . $producto['nombre'] . '</a>';
                         echo ' </h5><span class="text-muted font-weight-normal font-italic d-block">Categoria:' . $producto['categoria'] . '</span>
                             </div>
                             </div>
@@ -105,7 +95,10 @@
                           <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td></tr>';
                         $costeTotal = $costeTotal + ($producto['stock'] * $producto['precio']);
                       }
+                      print_r($costeTotal);
+
                     }
+
                     ?>
                                     </tbody>
                                 </table>

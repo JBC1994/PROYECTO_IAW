@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
             style="background: rgb(34, 34, 34);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;--bs-primary: #ffffff;--bs-primary-rgb: 255,255,255;">
             <div class="container">
-                <a href="../seccion_usuario_MOD/index.html" class="btn btn-primary bg-dark border rounded-pill"
+                <a href="index.php" class="btn btn-primary bg-dark border rounded-pill"
                     data-bss-hover-animate="rubberBand">
                     Brand
                 </a>
@@ -37,7 +37,7 @@
                         style="background: rgb(34,34,34);margin: 20px;border-color: var(--bs-body-color);padding: 0px 60px;height: 25px;width: 170px;">ACCEDER</button>
                     <div class="dropdown-menu"><a class="dropdown-item"
                             href="../login_usuario_MOD/index.php">LOGIN</a><a class="dropdown-item"
-                            href="../registro_MOD/index.html">REGISTRAR</a></div>
+                            href="../registro_MOD/index.html">LOGOUT</a></div>
                 </div>
                 <a href="../carrito_MOD/index.html" class="btn btn-primary pull-right" data-bss-disabled-mobile="true"
                     data-bss-hover-animate="swing"
@@ -47,9 +47,41 @@
             </div>
         </nav>
 
-        
 
-            <div class="gift row"> 
+        <?php
+    
+            if (isset($_GET['idproducto'])) {
+            $productID = $_GET['idproducto'];
+
+            // Fetch Product Details from Database
+            $productDAO = new ProductoDAO();
+            $product = $productDAO->getProductoById($productID);
+
+            // Display Product Details
+            if ($product) {
+                echo '<div class="gift__img col-sm-3 col-12"><img class="card-img-top" src="images/' . $product['nombre'] . '.jpg">';
+                echo '<h4 class="gift__name">' . $product['nombre'] . '</h4>';
+                echo '<div class="gift__details">';
+                echo '<p>' . $product['descripcion2'] . '</p>';
+                echo '</div>';
+                echo '<div class="gift__price-wrap col-12 col-sm-6"><br>';
+                echo '<div class="gift__normal-price"><span>Precio normal:&nbsp;</span><span>' . $product['precio'] . '</span></div><br>';
+                //Añado el boton de añadir al carrito.
+                echo '<form action="index.php?controller=productController&action=addCarrito&idproducto" method="post">';
+                echo '<input type="hidden" name="idproducto" value="' . $product['id_producto'] . '">';
+                echo '<input type="submit" value="Añadir al carrito">';
+                echo '</form>';
+            } else {
+                echo 'Product not found.';
+            }    
+        } else {
+            echo 'Missing product ID.';
+        }
+
+?>
+
+    <!--
+        <div class="gift row">
             <div class="gift__img col-sm-3 col-12"><img class="card-img-top"
                     src="images/' . $producto['nombre'] . '.jpg">';
                 <div class="gift__rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
@@ -80,6 +112,7 @@
                 </div>
             </div>
         </div>
+        -->
         <script src="Views/Producto1/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="Views/Producto1/assets/js/script.min.js"></script>
     </body>

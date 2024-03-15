@@ -8,12 +8,15 @@ class ProductoDAO {
     }
 
     // Método para insertar un nuevo producto
-    public function insertarProducto($nombre, $precio, $stock) {
-        $query = "INSERT INTO producto (nombre, precio, stock) VALUES (:nombre, :precio, :stock)";
+    public function insertarProducto($nombre, $descripcion, $precio, $stock, $categoria, $descripcion2) {
+        $query = "INSERT INTO producto (nombre, descripcion, precio, stock, categoria, descripcion2) VALUES (:nombre, :descripcion, :precio, :stock, :categoria, :descripcion2)";
         $stmt = $this->con_db->prepare($query);
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $descripcion, PDO::PARAM_STR);
         $stmt->bindParam(':precio', $precio, PDO::PARAM_INT);
         $stmt->bindParam(':stock', $stock, PDO::PARAM_INT);
+        $stmt->bindParam(':categoria', $categoria, PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion2', $descripcion2, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
             return true; // Producto insertado correctamente
@@ -40,6 +43,7 @@ class ProductoDAO {
 
         return $stmt->fetch(PDO::FETCH_ASSOC);;
     }
+
 
     // Método para actualizar un producto por su ID
     public function actualizarProductoPorId($idProducto, $nombre, $precio, $stock) {
@@ -69,6 +73,8 @@ class ProductoDAO {
             return false; // Error al eliminar producto
             }
         } 
+
+
     
 }
 ?>
