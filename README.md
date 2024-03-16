@@ -8,7 +8,7 @@
 -    1.4. [LOGIN USUARIO COMÚN](#LOGIN-USUARIO-COMÚN)
 -    1.5. [Creación de EC2 en AWS](#Creación-de-EC2-en-AWS)
 
-## ESTRUCTURA DE LA PAGINA WEB
+## ESTRUCTURA DE LA PÁGINA WEB
 
 Nuestra página web estará compuesta por una página de inicio, donde se verán los productos listados,también tendrá la opción de loguearnos como un usuario (admin o normal), podremos tener la posibilidad de poder ver un producto y la de añadir un carrito. También ver en el carrito los productos añadidos.
 
