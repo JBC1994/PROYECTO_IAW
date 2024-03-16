@@ -1,8 +1,8 @@
 ## <p align="center">Índice</p> 
 ### <p align="right">Joaquín Blanco Contreras, Curso: ASIR2</p>
 
-1.0. [ESTRUCTURA DE LA PAGINA WEB](#ESTRUCTURA-DE-LA-PAGINA-WEB)
--    1.1. [Pagina de inicio](#Pagina-de-inicio)
+1.0. [ESTRUCTURA DE LA PÁGINA WEB](#ESTRUCTURA-DE-LA-PAGINA-WEB)
+-    1.1. [PÁGINA DE INICIO](#PÁGINA-DE-INICIO)
 -    1.2. [VER PRODUCTO](#VER-PRODUCTO)
 -    1.3. [LOGIN USUARIO ADMIN](#LOGIN-USUARIO-ADMIN)
 -    1.4. [LOGIN USUARIO COMÚN](#LOGIN-USUARIO-COMÚN)
