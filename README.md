@@ -6,7 +6,7 @@
 -    1.2. [VER PRODUCTO](#VER-PRODUCTO)
 -    1.3. [LOGIN USUARIO ADMIN](#LOGIN-USUARIO-ADMIN)
 -    1.4. [LOGIN USUARIO COMÚN](#LOGIN-USUARIO-COMÚN)
--    1.5. [Creación de EC2 en AWS](#Creación-de-EC2-en-AWS)
+-    1.5. [RELACIÓN DE TABLAS SQL](#RELACIÓN-DE-TABLAS-SQL)
 
 ## ESTRUCTURA DE LA PÁGINA WEB
 
@@ -62,6 +62,14 @@ ROL que le asignamos en la BBDD al admin junto con la función implementada en u
 
 ![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/78350f99-80b4-40c6-a40d-adb87396421f)
 ![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/8f0966c9-82ea-422c-89b4-c831ce045ec9)
+
+Esta página lo que hará que una vez insertado el login nos redirigirá a nuestra pagina de inicio.
+
+## RELACIÓN DE TABLAS SQL
+
+Por último está sería la relación de tablas que tenemos en nuestro proyecto. 
+
+![RELACION_TABLAS_PROYECTO](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/d8a4d021-75b1-4fd2-b283-65244ffac9f6)
 
 
 
