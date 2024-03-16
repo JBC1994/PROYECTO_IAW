@@ -3,9 +3,9 @@
 
 1.0. [ESTRUCTURA DE LA PAGINA WEB](#ESTRUCTURA-DE-LA-PAGINA-WEB)
 -    1.1. [Pagina de inicio](#Pagina-de-inicio)
--    1.2. [¿Qué es una VPC en AWS?](#Qué-es-una-VPC-en-AWS)
--    1.3. [Creación de VPC en AWS](#Creación-de-VPC-en-AWS)
--    1.4. [¿Qué es una EC2 en AWS?](#Qué-es-una-EC2-en-AWS)
+-    1.2. [VER PRODUCTO](#VER-PRODUCTO)
+-    1.3. [LOGIN USUARIO ADMIN](#LOGIN-USUARIO-ADMIN)
+-    1.4. [LOGIN USUARIO COMÚN](#LOGIN-USUARIO-COMÚN)
 -    1.5. [Creación de EC2 en AWS](#Creación-de-EC2-en-AWS)
 
 ## ESTRUCTURA DE LA PAGINA WEB
