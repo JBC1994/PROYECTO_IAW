@@ -30,7 +30,6 @@ class ProductController {
         $productDAO = new ProductoDAO();
         $idProducto = $_REQUEST['idproducto'];
         $productDAO->eliminarProductoPorId($idProducto); // Tendremos que implementar lo que tenemos en nuestra clase DAO de borrado de producto.
-        
         $arrayProductos = $productDAO->getAllProductos();
         view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
     }
@@ -47,11 +46,37 @@ class ProductController {
         $categoria = $_POST['categoria'];
         $descripcion2 = $_POST['descripcion2'];
         $productDAO->insertarProducto($nombre, $descripcion, $precio, $stock, $categoria, $descripcion2);
-        
         $arrayProductos = $productDAO->getAllProductos();
         view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
-        //El array de productos es $data solo que esta implementado como $arrayProductos, recogerá toda la información de la BBDD. 
     }
+
+
+    public function addCarrito() {
+        // Verificar si la sesión del carrito existe, si no, crear una nueva
+        if (!isset($_SESSION['carrito'])) {
+            $_SESSION['carrito'] = array();
+        }
+        
+        // Obtener el ID del producto y la cantidad
+        $productId = $_GET['idproducto'];
+        $cantidad = $_POST['cantidad'];
+
+        // Verificar si el producto existe y la cantidad es válida
+        if (!isset($_SESSION['carrito'][$productId])) {
+            // Agregar el producto y la cantidad al carrito
+            $_SESSION['carrito'][$productId] = $cantidad;
+        } else {
+            // Si el producto ya está en el carrito, incrementar la cantidad
+            $_SESSION['carrito'][$productId] += $cantidad;
+        }
+
+        // Redirigir a la página de inicio
+        $productDAO = new ProductoDAO();
+        $arrayProductos = $productDAO->getAllProductos();
+        view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
+    }
+
+
 
     //Este fragmento de código va dirigido a la vista carrito, que es la que muestra el carrito de compras.
     //Declaramos la sesion si existe, si no, creamos una nueva, y si ya existe, la cargamos.
@@ -63,6 +88,5 @@ class ProductController {
         } else {
                 view::show('Views/carrito_MOD/carrito');
     }
-}
-
+    }
 }
