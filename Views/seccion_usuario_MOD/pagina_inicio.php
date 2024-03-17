@@ -90,7 +90,7 @@
         </div>';
         $i++;
     }
-    echo '</div>'; // Cierro la última fila después del bucle
+    echo '</div>'; // Aqui cierro la última fila después del bucle
 } else {
     echo 'No hay productos para mostrar';
 }
