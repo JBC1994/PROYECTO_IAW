@@ -72,9 +72,8 @@ class ProductoDAO {
         } else {
             return false; // Error al eliminar producto
             }
-        } 
+        }
+         
+   }
 
-
-    
-}
 ?>

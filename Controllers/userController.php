@@ -101,19 +101,7 @@ class UserController {
             $arrayProductos = $product->getAllProductos();
             view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
         }
-
-        // Verificar si $arrayProductos existe antes de usarlo
-        //if (isset($arrayProductos)) {
-           // view::show($view, $arrayProductos);
-        //} else {
-          //  view::show($view);
-       // }
-
     }
-    
-
-  
-
 }
 
 ?>

@@ -11,87 +11,7 @@ class ProductController {
         view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
     }
 
-    function getAllProductUser(){
-        view::show('Views/carrito_MOD/carrito', $_SESSION['carrito']);
-    }
-
-    //Añadir producto es solo para el administrador
-    function addProduct(){ 
-        $erroresForm = [];
-        if ( isset ($_POST['insertar']) && $_SERVER['REQUEST_METHOD'] == 'POST' ){
-
-            if (empty($_POST['nombre'])==0)
-                $erroresForm['nombre']="El nombre no puede estar vacío.";
-
-            if (empty($_POST['descripcion'])==0)
-                $erroresForm['descripcion']="La descripción no puede estar vacía.";
-
-            if (empty($_POST['precio'])==0)
-                $erroresForm['precio']="El precio no puede estar vacío.";
-
-            if (empty($_POST['stock'])==0)
-                $erroresForm['stock']="El stock no puede estar vacío.";
-
-            if (empty($_POST['categoria'])==0)
-                $erroresForm['categoria']="La categoría no puede estar vacía.";
-
-            if (empty($_POST['descripcion2'])==0)
-                $erroresForm['descripcion2']="La categoría no puede estar vacía.";
-            
-
-            # Comprobamos si hemos detectado errores en el form
-            if (count($erroresForm)==0){ //Si el array no esta vacio
-                $id=filtrado($_POST['id']);
-                $nombre=filtrado($_POST['nombre']);
-                $descripcion=filtrado($_POST['descripcion']);
-                $precio=filtrado($_POST['precio']);
-                $stock=filtrado($_POST['stock']);
-                $categoria=filtrado($_POST['categoria']);
-                $descripcion2=filtrado($_POST['descripcion2']);
-                
-                $productDao=new ProductoDAO();
-                $productDao->insertarProducto($nombre,$descripcion,$precio,$stock,$categoria,$descripcion2);
-                $arrayProductos=$productDao->getAllProductos();
-
-                view::show('views/Panel_de_control_administrador/admin',$arrayProductos);
-            }
-        }
-        else { // Si el array esta vacío, hay errores en los campos
-
-            view::show('insertar_producto',$erroresForm);
-
-        }
-    }
-
-    function addCarrito() {
-        
-        if (!isset($_SESSION['carrito'])){
-            $_SESSION['carrito'] = array();
-        }
-    
-        // Comprueba que 'idproducto' se ha enviado y es un número
-        if (isset($_REQUEST['idproducto']) && is_numeric($_REQUEST['idproducto'])) {
-            $idproducto = $_REQUEST['idproducto'];
-    
-            // Si el producto ya está en el carrito, incrementa la cantidad
-            if (isset($_SESSION['carrito'][$idproducto])) {
-                $_SESSION['carrito'][$idproducto]++;
-            } else {
-                // Si no, añade el producto al carrito con una cantidad de 1
-                $_SESSION['carrito'][$idproducto];
-            }
-        } else {
-            // Si no se ha enviado 'idproducto' o no es un número, muestra un mensaje de error
-            echo 'Error: Producto no válido.';
-        }
-    
-        // Mostramos de nuevo la lista de productos
-        $productDAO = new ProductoDAO();
-        $arrayProductos = $productDAO->getAllProductos();
-        view::show('views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
-    }
-
-
+    //Aqui saco un producto por id, para verlo en detalle.
     function getProductById(){
         $productDAO = new ProductoDAO();
         $idProducto = $_REQUEST['idproducto'];
@@ -114,6 +34,9 @@ class ProductController {
         view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
     }
 
+    //Aqui lo que hago es que directamente manejo la vista de insertar producto, y si se ha enviado el formulario, llamo a la funcion de insertar producto.
+
+    
     function insertarProducto(){
         $productDAO = new ProductoDAO();
         $nombre = $_POST['nombre'];
@@ -127,4 +50,43 @@ class ProductController {
         view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
     }
 
+
+    public function addCarrito() {
+        // Verificar si la sesión del carrito existe, si no, crear una nueva
+        if (!isset($_SESSION['carrito'])) {
+            $_SESSION['carrito'] = array();
+        }
+        
+        // Obtener el ID del producto y la cantidad
+        $productId = $_GET['idproducto'];
+        $cantidad = $_POST['cantidad'];
+
+        // Verificar si el producto existe y la cantidad es válida
+        if (!isset($_SESSION['carrito'][$productId])) {
+            // Agregar el producto y la cantidad al carrito
+            $_SESSION['carrito'][$productId] = $cantidad;
+        } else {
+            // Si el producto ya está en el carrito, incrementar la cantidad
+            $_SESSION['carrito'][$productId] += $cantidad;
+        }
+
+        // Redirigir a la página de inicio
+        $productDAO = new ProductoDAO();
+        $arrayProductos = $productDAO->getAllProductos();
+        view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
+    }
+
+
+
+    //Este fragmento de código va dirigido a la vista carrito, que es la que muestra el carrito de compras.
+    //Declaramos la sesion si existe, si no, creamos una nueva, y si ya existe, la cargamos.
+    //Despues $carrito almacena el carrito de compras y sino almacena un array vacio.
+    function getAllProductUser(){
+        if (isset($_SESSION['carrito'])){
+            $carrito = $_SESSION['carrito'];
+            view::show('Views/carrito_MOD/carrito', $carrito);
+        } else {
+                view::show('Views/carrito_MOD/carrito');
+    }
+    }
 }

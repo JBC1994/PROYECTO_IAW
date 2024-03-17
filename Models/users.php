@@ -92,12 +92,6 @@ class userDAO{
             $stmt->execute();        
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
-
-            
-        
-
-
-
 }
 
 
