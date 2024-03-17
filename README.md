@@ -19,49 +19,60 @@ La estética de la página web está implementada por bootstrap, css y html.
 
 ## PÁGINA DE INICIO 
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/5d8de2d3-0479-4701-a22f-27b11387545b)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/13de4891-44ba-4281-b7f6-dc0c4e401046)
+
 
 Está página esta implementada por una función llamada "VerPaginaInicial" ubicada en la página "ProductoController.php" , nos permite que gracias a un array de productos de la bbdd sacar todos los productos en una lista, de manera clara y concisa.
 
 ## VER PRODUCTO
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/b88b9a87-05e4-463b-8e5f-a3d11ca4a384)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/1772838c-e1bd-47a4-a315-21de046493ae)
 
 Este apartado nos permite ver la funcionalidad del botón "ver producto", implementada en la clase "ProductoController" y llamada "getProductById" , que permite ver detalladamente la descripción del producto.
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/5d9d510e-84e9-4339-a32a-dd1313db0c07)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/21e6eb16-668f-43cc-91ba-f51202e3587f)
 
 ## LOGIN USUARIO ADMIN
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/b97f5bdc-530c-4178-a208-1f7c127fb837)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/f272fcf8-35e3-4e98-a11b-9403d32f1858)
 
 En este apartado hemos agregado un login de usuario controlando las sesiones, lo que nos permitirá ser un poco mas profesionales y más realistas a la hora de buscar productos en nuestra página web.
 Hemos implementado un pequeño control de errores en el login, para advertir de que el nombre no es correcto, o de que los credenciales no son los apropiados.
 
 Tendremos dos opciones como mencionamos anterioremente, en este apartado tendremos el "ADMINISTRADOR", esté tendrá el poder de crear productos nuevos y borrarlos.
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/7064ad05-7e5d-49a6-a549-357d53d3539b)
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/c5b6c35c-b294-459c-89b8-efa9a3b3fb00)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/646b9a49-14a9-4725-88c5-e85340128ff0)
+
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/4c9d9ae2-5ad7-4e2b-af60-db19a3b9b9e9)
+
 
 Lo podremos corroborar en nuestra BBDD.
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/43e9f5ef-565f-41b6-a1e3-c4eedd3b46eb)
+
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/4a1a5111-8f18-4f36-a6fe-efd94c41e8dd)
 
 Ejemplo de añadir datos desde panel administrador a BBDD.
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/3a6996c9-2b66-475e-90eb-d019299439df)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/170a3d01-1d3c-4fbc-ac8e-4cd6a06210ca)
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/47ecc69b-51d3-46e6-adaa-87adbc598846)
-
+Ahora veremos si esta añadido a nuestra pagina. 
 ![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/6517e6e0-daeb-4a4a-b286-06ccea617b2c)
 
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/f75275e0-acef-4f8c-a67d-3f569dc3de62)
+
+Ahora comprobamos si estamos en la BBDD.
+
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/29e25899-4b6a-43bc-b75c-5fd83e4223bf)
+
 ROL que le asignamos en la BBDD al admin junto con la función implementada en usercontroller, si es 1 es admin, sino un user normal.
+
 ![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/be099301-8d77-411f-8a02-39338b7f5384)
 
 
 ## LOGIN USUARIO COMÚN
 
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/78350f99-80b4-40c6-a40d-adb87396421f)
-![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/8f0966c9-82ea-422c-89b4-c831ce045ec9)
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/38b4c34a-641c-45fc-9ab7-9f0d0361c0f9)
+
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/b49d879a-4db2-4d38-b0d3-179d7fb944de)
 
 Esta página lo que hará que una vez insertado el login nos redirigirá a nuestra pagina de inicio.
 
