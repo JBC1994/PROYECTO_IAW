@@ -11,11 +11,11 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
+    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
         style="background: #002525; padding: 0; --bs-primary: #ffffff;">
         <div class="container">
-            <a href="index.php" class="btn btn-primary bg-dark border rounded-pill"
-                data-bss-hover-animate="tada">JBC MOTOR</a>
+            <a href="index.php" class="btn btn-primary bg-dark border rounded-pill" data-bss-hover-animate="tada">JBC
+                MOTOR</a>
             <div class="collapse navbar-collapse" id="navcol-1" style="color: #fff; width: 1500.969px;">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="tada" type="button"
@@ -66,8 +66,21 @@
                     <label class="form-label" id="lbl-password" for="txt-password">Password</label>
                     <input class="form-control" type="password" id="txt-password" name="contrasena">
                 </div>
-                
+                <!-- Aqui lo que hago es mostrar un error si el usuario no existe o la contraseña es incorrecta. -->
+
                 <?php
+                /*
+$Data (Viene de view.php), y $data es un array que se pasa a la vista desde el controlador, que es userController.
+
+En el patrón de diseño MVC (Modelo-Vista-Controlador), el controlador maneja la lógica de la aplicación, interactúa con el modelo para obtener y manipular datos, y luego envía esos datos a la vista para ser presentados al usuario.
+El controlador userController está pasando un array $data a la vista. 
+Este array puede contener varios tipos de datos que la vista necesita para renderizar el HTML, y uno de esos datos puede ser un mensaje de error.
+
+Si ocurre un error durante el proceso de inicio de sesión (por ejemplo, si el usuario introduce una contraseña incorrecta), el controlador puede agregar un mensaje de error al array $data bajo la clave 'error', y luego pasar $data a la vista.
+
+La vista entonces comprueba si existe un mensaje de error en $data con isset($data['error']). Si existe, la vista genera un div con una alerta de Bootstrap que muestra el mensaje de error.
+
+                */
                 if (isset($data['error'])) {
                     echo "<div class='alert alert-danger' role='alert'>".$data['error']."</div>";
                 }

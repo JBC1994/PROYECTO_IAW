@@ -70,6 +70,7 @@ class UserController {
             return;
         }
     
+        //Metemos el metodo POST para ser transparentes al usuario.
         $usuario = $_POST['usuario'];
         $contrasena = $_POST['contrasena'];
     
@@ -84,7 +85,7 @@ class UserController {
         }
     
         // Iniciar sesión y establecer el rol del usuario
-        
+        //Aqui session usuario seria util para poner el nombre de la sesion del usuario, aunque ahora mismo no lo uso.
         $_SESSION['usuario'] = $usuario;
         $_SESSION['rol'] = $usuarioDB['rol'];
 
@@ -104,6 +105,7 @@ class UserController {
 
     //Aqui lo que hago es cerrar una sesion.
     function logout(){
+        //Eliminamos al usuario o limpiamos la sesion con el unset.
         unset($_SESSION ['usuario']);
         session_destroy();
         
