@@ -7,8 +7,8 @@
 -    1.3. [LOGIN USUARIO ADMIN](#LOGIN-USUARIO-ADMIN)
 -    1.4. [LOGIN USUARIO COMÚN](#LOGIN-USUARIO-COMÚN)
 -    1.5. [RELACIÓN DE TABLAS SQL](#RELACIÓN-DE-TABLAS-SQL)
+
 2.0. [ESTRUCTURA DE CARPETAS](#ESTRUCTURA-DE-CARPETAS)
--    1.1. [PÁGINA DE INICIO](#PÁGINA-DE-INICIO)
 
 ## ESTRUCTURA DE LA PÁGINA WEB
 
@@ -85,4 +85,12 @@ Por último está sería la relación de tablas que tenemos en nuestro proyecto.
 ![RELACION_TABLAS_PROYECTO](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/d8a4d021-75b1-4fd2-b283-65244ffac9f6)
 
 
+## ESTRUCTURA DE CARPETAS
 
+Las carpetas con las que vamos a trabajar, serán, Controllers, Models, ProyectoBBDD, Views e images.
+En controllers, sera una carpeta destinada a guardar nuestras funciones implementadas, por asi decirlo es la intermediaría entre las clases DAO y las vistas. 
+En Models tendremos nuestras consultas de la BBDD, que serán nuestras clases DAO. 
+En Views estarán nuestras vistas que enlazaremos unas con otras según el controlador que tengamos para implementarlo.
+En images será donde tengamos nuestras imagenes, estás imagenes estarán escritas con palabras claves, que automaticamente se asignarán a nuestras vistas según se llame el producto.
+
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/34e865d7-9ef4-493e-adb7-8bfa6b01bbea)
