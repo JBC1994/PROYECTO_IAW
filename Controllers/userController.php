@@ -43,8 +43,7 @@ class UserController {
                 view::show('userview',$arrayUser);
             }
         }
-        else { // Si el array esta vacío, hay errores en los campos
-
+        else { // Si el array esta vacío, hay errores en los campos del form
             
             view::show('insertuser',$erroresForm);
 
@@ -99,12 +98,15 @@ class UserController {
             $arrayProductos = $product->getAllProductos();
             view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
         }
+        
+
     }
 
     //Aqui lo que hago es cerrar una sesion.
     function logout(){
+        unset($_SESSION ['usuario']);
+        session_destroy($_SESSION);
         
-        session_destroy();
         $product=new ProductoDAO();
         $arrayProductos = $product->getAllProductos();
         view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
