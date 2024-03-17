@@ -31,7 +31,7 @@ class ProductController {
         $idProducto = $_REQUEST['idproducto'];
         $productDAO->eliminarProductoPorId($idProducto); // Tendremos que implementar lo que tenemos en nuestra clase DAO de borrado de producto.
         $arrayProductos = $productDAO->getAllProductos();
-        view::show('views/Panel_de_control_administrador/admin', $arrayProductos);
+        view::show('views/Panel_de_control_administrador/admin', $arrayProductos);   
     }
 
     //Aqui lo que hago es que directamente manejo la vista de insertar producto, y si se ha enviado el formulario, llamo a la funcion de insertar producto.

@@ -105,7 +105,7 @@ class UserController {
     //Aqui lo que hago es cerrar una sesion.
     function logout(){
         unset($_SESSION ['usuario']);
-        session_destroy($_SESSION);
+        session_destroy();
         
         $product=new ProductoDAO();
         $arrayProductos = $product->getAllProductos();

@@ -70,6 +70,7 @@
             //Aqui enlazamos con la imagen src = "images/" . $producto['nombre'] . ".jpg"
             echo '<div class="bg-light border rounded shadow card" data-bss-hover-animate="rubberBand"><img class="card-img-top" src="images/' . $producto['nombre'] . '.jpg">';
             echo '<div class="card-body">
+            
                 <h3 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">' . $producto['nombre'] . '</h3>';
             echo '<h5 class="card-sub-title" style="font-family: Antic, sans-serif;color: #38ae53;">' . $producto['precio'] . '€</h5>';
             echo '<p class="card-text" style="font-family: Antic, sans-serif;color: rgb(81,87,94);"></p>
