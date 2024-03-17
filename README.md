@@ -93,3 +93,4 @@ En Models tendremos nuestras consultas de la BBDD, que serán nuestras clases DA
 En Views estarán nuestras vistas que enlazaremos unas con otras según el controlador que tengamos para implementarlo.
 En images será donde tengamos nuestras imagenes, estás imagenes estarán escritas con palabras claves, que automaticamente se asignarán a nuestras vistas según se llame el producto.
 
+![imagen](https://github.com/JBC1994/PROYECTO_IAW/assets/120668110/34e865d7-9ef4-493e-adb7-8bfa6b01bbea)
