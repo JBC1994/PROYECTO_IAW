@@ -65,10 +65,10 @@ class UserController {
     
     public function login() {
 
-        // Verificar si se enviaron los datos del formulario de inicio de sesión
+        // Verifico si se enviaron los datos del formulario de inicio de sesión
         if (!isset($_POST['usuario'], $_POST['contrasena'])) {
             // Mostrar un mensaje de error si no se proporcionaron los datos necesarios
-            $error['error'] = 'Por favor, proporcione un usuario y una contraseña.';
+            $error['error'] = 'Por favor, Tienes que porcionar un usuario y una contraseña.';
             view::show('views/login_usuario_MOD/login', $error);
             return;
         }
@@ -91,7 +91,7 @@ class UserController {
         $_SESSION['usuario'] = $usuario;
         $_SESSION['rol'] = $usuarioDB['rol'];
 
-        // Determinar la vista según el rol del usuario
+        // Determino el rol del usuario y redirecciono a la vista correspondiente, si es 1 es administrador, si es 2 es usuario
         if($_SESSION['rol'] == '1'){
             $product=new ProductoDAO();
             $arrayProductos = $product->getAllProductos();
@@ -102,6 +102,16 @@ class UserController {
             view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
         }
     }
+
+    //Aqui lo que hago es cerrar una sesion.
+    function logout(){
+        
+        session_destroy();
+        $product=new ProductoDAO();
+        $arrayProductos = $product->getAllProductos();
+        view::show('Views/seccion_usuario_MOD/pagina_inicio', $arrayProductos);
+    }
+
 }
 
 ?>

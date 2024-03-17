@@ -11,45 +11,37 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light"
-        style="background: #002525; padding: 0; --bs-primary: #ffffff;">
-        <div class="container">
-            <a href="index.php" class="btn btn-primary bg-dark border rounded-pill"
-                data-bss-hover-animate="rubberBand">JBC MOTOR</a>
-            <div class="collapse navbar-collapse" id="navcol-1" style="color: #fff; width: 1500.969px;">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash" type="button"
-                        aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
-                        style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">CATEGORÍA&nbsp;</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../Coche_Ocasion/index.html">COCHES DE OCASION</a>
-                        <a class="dropdown-item" href="../Coche_Kilometro_0/index.html">COCHES KILOMETRO 0</a>
-                        <a class="dropdown-item" href="../Coche_Renting/index.html">RENTING</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-            </div>
+    <nav class="navbar navbar-expand-md navbar-fixed-top navigation-clean-button navbar-light" style="background: #002525; padding: 0; --bs-primary: #ffffff;">
+    <div class="container">
+        <a href="index.php" class="btn btn-primary bg-dark border rounded-pill" data-bss-hover-animate="rubberBand">JBC MOTOR</a>
+        <div class="collapse navbar-collapse" id="navcol-1" style="color: #fff; width: 1500.969px;">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash" type="button"
-                    aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"
-                    style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">ACCEDER</button>
+                <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash" type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">CATEGORÍA&nbsp;</button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
-                    <a class="dropdown-item" href="../registro_MOD/index.html">LOGOUT</a>
+                    <a class="dropdown-item" href="../Coche_Ocasion/index.html">COCHES DE OCASION</a>
+                    <a class="dropdown-item" href="../Coche_Kilometro_0/index.html">COCHES KILOMETRO 0</a>
+                    <a class="dropdown-item" href="../Coche_Renting/index.html">RENTING</a>
                 </div>
             </div>
-            <a href="index.php?controller=ProductController&action=getAllProductUser" class="btn btn-primary pull-right"
-                data-bss-disabled-mobile="true" data-bss-hover-animate="swing"
-                style="background: var(--bs-body-color); border-color: var(--bs-secondary-color);">
-                <i class="fa fa-shopping-cart" data-bss-hover-animate="swing" style="font-size: 29px;"></i>
-            </a>
         </div>
-    </nav>
+        <div class="container-fluid">
+            <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" data-bss-hover-animate="flash" type="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">ACCEDER</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
+                <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGOUT</a>
+            </div>
+        </div>
+        <a href="index.php?controller=ProductController&action=getAllProductUser" class="btn btn-primary pull-right" data-bss-disabled-mobile="true" data-bss-hover-animate="swing" style="background: var(--bs-body-color); border-color: var(--bs-secondary-color);">
+            <i class="fa fa-shopping-cart" data-bss-hover-animate="swing" style="font-size: 29px;"></i>
+        </a>
+    </div>
+</nav>
     <div id="main">
         <div class="text-center" id="info">
             <h3 class="text-center">Bienvenido</h3>
@@ -65,7 +57,7 @@
                     <label class="form-label" id="lbl-password" for="txt-password">Password</label>
                     <input class="form-control" type="password" id="txt-password" name="contrasena">
                 </div>
-
+                
                 <?php
                 if (isset($data['error'])) {
                     echo "<div class='alert alert-danger' role='alert'>".$data['error']."</div>";

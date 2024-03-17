@@ -45,7 +45,7 @@
                         style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">ACCEDER</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
-                        <a class="dropdown-item" href="../registro_MOD/index.html">LOGOUT</a>
+                        <a class="dropdown-item" href="index.php?controller=userController&action=logout">LOGOUT</a>
                     </div>
                 </div>
                 <a href="index.php?controller=ProductController&action=getAllProductUser"
@@ -94,13 +94,16 @@
                                     echo '<td>' . $producto['categoria'] . '</td>';
                                     echo '<td>' . $producto['precio'] . '</td>';
                                     $linkBorrado = '<a href="index.php?controller=productController&action=deleteproduct&idproducto=' . $producto['id_producto'] . '">Borrar producto</a>';
-                                    echo "<td><button type='button' class='btn btn-danger'><i class='far fa-trash-alt d-xl-flex justify-content-xl-center align-items-xl-center'>{$linkBorrado}</i></button></td>";                                    echo '</tr>'; // Cierro la fila
+                                    echo "<td><button type='button' class='btn btn-danger'><i class='far fa-trash-alt d-xl-flex justify-content-xl-center align-items-xl-center'>{$linkBorrado}</i></button></td>";
+                                    echo '</tr>'; // Cierro la fila
                                 }
                                 ?>
                                 </tr>
                             </tbody>
                         </table>
-
+                         
+                        <!-- Aqui implemento el form para insertar un nuevo proyecto -->
+                        
                         <form id="myForm" action="index.php?controller=productController&action=insertarProducto"
                             method="post">
                             <label for="nombre">Nombre del producto:</label><br>
