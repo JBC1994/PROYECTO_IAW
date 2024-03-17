@@ -40,7 +40,7 @@
                         style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">ACCEDER</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
-                        <a class="dropdown-item" href="../registro_MOD/index.html">LOGOUT</a>
+                        <a class="dropdown-item" href="index.php?controller=userController&action=logout">LOGOUT</a>
                     </div>
                 </div>
                 <a href="index.php?controller=ProductController&action=getAllProductUser"

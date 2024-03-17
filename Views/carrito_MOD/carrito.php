@@ -40,7 +40,7 @@
                     style="background: rgb(34,34,34); margin: 20px; border-color: var(--bs-body-color); padding: 0px 60px; height: 25px; width: 170px;">ACCEDER</button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="index.php?controller=userController&action=verlogin">LOGIN</a>
-                    <a class="dropdown-item" href="../registro_MOD/index.html">LOGOUT</a>
+                    <a class="dropdown-item" href="index.php?controller=userController&action=logout">LOGOUT</a>
                 </div>
             </div>
             <a href="index.php?controller=ProductController&action=getAllProductUser" class="btn btn-primary pull-right"
@@ -113,12 +113,13 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- End -->
                         </div>
                     </div>
 
                     <div class="row py-5 p-4 bg-white rounded shadow-sm">
                         <div class="col-lg-6">
+
+                            <!-- Plantilla para el coupon -->
                             <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
               <div class="p-4">
                 <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
